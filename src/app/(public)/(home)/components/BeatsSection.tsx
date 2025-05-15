@@ -6,6 +6,7 @@ import { $PlayList, $SelectedSong } from "@stores/player";
 import { useEffect } from "react";
 import { useStore } from "@nanostores/react";
 import { useSearchParams } from "next/navigation";
+import { PlayIcon } from "@/icons/PlayIcon";
 export const BeatsSection = () => {
   const selectedSong = useStore($SelectedSong);
   const searchParams = useSearchParams();
@@ -47,11 +48,16 @@ export const BeatsSection = () => {
             }
             className={`${
               selectedSong?.id === beat.id
-                ? "scale-105 border border-secundario"
+                ? "scale-105 border-b-2 border-b-secundario/80 shadow-lg"
                 : ""
-            } transition-all duration-300 hover:cursor-pointer rounded-md flex flex-col gap-1 p-4 w-60 h-64 rounded-b-md bg-white`}
+            } transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col gap-1 p-4 w-60 h-64 rounded-b-md bg-white group`}
           >
-            <h3 className="text-lg font-semibold">{beat.name}</h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">{beat.name}</h3>
+              <small className="group-hover:scale-150 rounded-full p-1 transition-all duration-300 ">
+                <PlayIcon />
+              </small>
+            </div>
             <p className="text-sm text-gray-600">{beat.tags.join(", ")}</p>
             <div className="flex flex-col items-center gap-4 justify-center w-full">
               <img

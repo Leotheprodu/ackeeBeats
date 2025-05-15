@@ -51,10 +51,10 @@ export const ContactUsForm = () => {
               href="https://www.youtube.com/channel/UCAVKw7wP-yKPGSbCd1BJ7mw"
               target="_blank"
             >
-              <YoutubeIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:scale-105 transition" />
+              <YoutubeIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:text-orange-800 transition" />
             </a>
             <a href="https://www.facebook.com/FLProductionscr" target="_blank">
-              <FacebookIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:scale-105 transition" />
+              <FacebookIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:text-orange-800 transition" />
             </a>
           </div>
         </div>

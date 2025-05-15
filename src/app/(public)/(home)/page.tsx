@@ -13,7 +13,7 @@ export default function Home() {
         </p>
       </section>
       <BeatsSection />
-      <div className="flex flex-col md:flex-row items-center gap-5 bg-orange-100">
+      <div className="flex flex-col md:flex-row items-center gap-5 bg-secundario/10 p-6">
         <section
           id="about"
           className="md:w-1/2 w-full text-white pt-6 pl-6 flex flex-col items-center"
@@ -28,10 +28,10 @@ export default function Home() {
           <div className="bg-black/60 p-6 rounded-l-lg">
             <h2 className="text-2xl font-bold mb-6">Sobre mí</h2>
             <p className="max-w-2xl">
-              Soy Leo Serrano, productor musical de FLProductions, apasionado
-              por crear beats únicos con sabor tropical, urbano y experimental.
-              Ackee Beats es mi espacio para compartir ritmos frescos para
-              artistas y creadores.
+              Soy Leo, un productor musical costarricense apasionado por crear
+              beats únicos con sabor tropical, urbano y experimental. Ackee
+              Beats es mi espacio para compartir ritmos frescos para artistas y
+              creadores.
             </p>
           </div>
         </section>

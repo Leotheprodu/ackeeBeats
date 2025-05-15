@@ -12,6 +12,7 @@ import { BackwardIcon } from "@/icons/BackwardIcon";
 import { PauseIcon } from "@/icons/PauseIcon";
 import { PlayIcon } from "@/icons/PlayIcon";
 import { ForwardIcon } from "@/icons/ForwardIcon";
+import { BuyButton } from "../BuyButton";
 
 export const MusicPlayer = () => {
   const playlist = useStore($PlayList);
@@ -209,9 +210,9 @@ export const MusicPlayer = () => {
           />
 
           <div className="absolute flex h-[4rem] w-full items-center justify-center overflow-hidden">
-            <div className="pointer-events-none absolute z-10 h-screen w-screen blur-xl bg-black/60">
+            <div className="pointer-events-none absolute z-10 h-screen w-screen blur-xs bg-red-600/95">
               <ReactPlayer
-                className="scale-x-150 opacity-30"
+                className="scale-x-150 opacity-20"
                 width="100%"
                 height="100%"
                 url={`https://www.youtube.com/watch?v=${selectedBeat?.youtubeId}`}
@@ -285,6 +286,11 @@ export const MusicPlayer = () => {
                   <span className="font-bold">{selectedBeat.name}</span>,{" "}
                   {selectedBeat.tags?.join(", ")}
                 </p>
+              </div>
+            )}
+            {selectedBeat && (
+              <div className="absolute hidden bottom-1/2 right-2 sm:flex translate-y-1/2 transform flex-col gap-1">
+                <BuyButton color={2} id={selectedBeat.id} />
               </div>
             )}
           </div>

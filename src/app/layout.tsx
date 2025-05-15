@@ -12,9 +12,9 @@ export default function RootLayout({
   const currentYear = new Date().getFullYear();
   return (
     <html lang="es">
-      <body>
+      <body className="bg-primario">
         <Toaster />
-        <main className="bg-primario container mx-auto px-8 py-2">
+        <main className=" container mx-auto px-8 py-2">
           <header className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <Image
@@ -26,9 +26,18 @@ export default function RootLayout({
               />
             </Link>
             <nav className="space-x-4 text-sm font-medium">
-              <Link href="#beats">Beats</Link>
-              <Link href="#about">Sobre mí</Link>
-              <Link href="#contact">Contacto</Link>
+              <Link className="hover:text-secundario transition" href="#beats">
+                Beats
+              </Link>
+              <Link className="hover:text-secundario transition" href="#about">
+                Sobre mí
+              </Link>
+              <Link
+                className="hover:text-secundario transition"
+                href="#contact"
+              >
+                Contacto
+              </Link>
             </nav>
           </header>
           {children}
