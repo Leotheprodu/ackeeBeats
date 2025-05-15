@@ -1,5 +1,6 @@
 import { ContactUsForm } from "./components/ContactUsForm";
 import { BeatsSection } from "./components/BeatsSection";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -12,7 +13,9 @@ export default function Home() {
           Trap, R&B, Dancehall, Afrobeat y más. Escucha, compra y sigue creando
         </p>
       </section>
-      <BeatsSection />
+      <Suspense>
+        <BeatsSection />
+      </Suspense>
       <div className="flex flex-col md:flex-row items-center gap-5 bg-secundario/10 p-6">
         <section
           id="about"
