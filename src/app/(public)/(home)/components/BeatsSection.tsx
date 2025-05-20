@@ -50,10 +50,24 @@ export const BeatsSection = () => {
               selectedSong?.id === beat.id
                 ? "scale-105 border-b-2 border-b-secundario/80 shadow-lg"
                 : ""
-            } transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col gap-1 p-4 w-60 h-64 rounded-b-md bg-white group`}
+            } transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col gap-1 p-4 w-60 h-[20rem] rounded-b-md bg-white group`}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold">{beat.name}</h3>
+              <div>
+                <div className="flex flex-wrap gap-1 items-center">
+                  <h3 className="text-lg font-semibold p-0 m-0">{beat.name}</h3>
+                  <p className="text-sm text-gray-500">{beat.producer}</p>
+                </div>
+
+                <div className="flex gap-2">
+                  <small className="bg-gray-200 p-1 rounded-md">
+                    {beat.scale}
+                  </small>
+                  <small className="bg-gray-200 p-1 rounded-md">
+                    {beat.bpm}bpm
+                  </small>
+                </div>
+              </div>
               <small className="group-hover:scale-150 rounded-full p-1 transition-all duration-300 ">
                 <PlayIcon />
               </small>
@@ -63,7 +77,7 @@ export const BeatsSection = () => {
               <img
                 src={`https://img.youtube.com/vi/${beat?.youtubeId}/mqdefault.jpg`}
                 alt={`imagen de ${beat.name}`}
-                className="h-full w-full rounded-sm object-cover"
+                className="h-full w-full max-h-28 rounded-sm object-cover"
               />
               <BuyButton id={beat.id} />
             </div>
