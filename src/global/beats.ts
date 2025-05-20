@@ -18,4 +18,13 @@ export const beats: Beat[] = [
     scale: "C#m",
     youtubeId: "RZpoWOVAJkU",
   },
+  {
+    id: 2,
+    name: "Playita",
+    producer: "LeoTheProdu",
+    tags: ["Afrobeat", "Caribeño", "Dancehall", "Guitar"],
+    bpm: 101,
+    scale: "Fm",
+    youtubeId: "ijSX5p7hS4s",
+  },
 ];
