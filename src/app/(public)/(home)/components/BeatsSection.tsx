@@ -8,9 +8,10 @@ import { useStore } from "@nanostores/react";
 import { PlayIcon } from "@/icons/PlayIcon";
 export const BeatsSection = () => {
   const selectedSong = useStore($SelectedSong);
+  const sortedBeats = beats?.sort((a, b) => b.id - a.id);
   const beatLimit = 4;
-  const latestBeats = beats?.sort((a, b) => b.id - a.id).slice(0, beatLimit);
-  const allBeats = beats?.sort((a, b) => b.id - a.id).slice(beatLimit);
+  const latestBeats = sortedBeats?.slice(0, beatLimit);
+  const allBeats = sortedBeats?.slice(beatLimit);
   useEffect(() => {
     const songsWithYoutubeId = beats?.filter((song) => song.youtubeId);
 
