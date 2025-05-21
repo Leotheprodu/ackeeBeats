@@ -13,7 +13,7 @@ export const BuyButton = ({ id, color = 1 }: { id: number; color?: 1 | 2 }) => {
   return (
     <button
       onClick={buyHandle}
-      className={`w-40 ${
+      className={`md:w-40 w-20 ${
         color === 1
           ? "bg-secundario text-white hover:bg-orange-700"
           : "bg-primario text-black hover:bg-gray-200"
@@ -21,7 +21,7 @@ export const BuyButton = ({ id, color = 1 }: { id: number; color?: 1 | 2 }) => {
     >
       <div className="flex items-center justify-center gap-2">
         Consultar
-        <WhatsappIcon className="w-6 h-6" />
+        <WhatsappIcon className="w-6 h-6 hidden md:flex" />
       </div>
     </button>
   );
