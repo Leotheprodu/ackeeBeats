@@ -7,11 +7,34 @@ export default function Home() {
     <>
       <section className="text-center py-20 px-6">
         <h1 className="md:text-5xl text-3xl font-bold mb-4 md:w-1/2 w-full mx-auto">
-          Beats frescos, estilo único, sonido Ackee
+          Beats frescos, estilo exótico, sonido Ackee
         </h1>
         <p className="text-gray-600 mb-6">
-          Trap, R&B, Dancehall, Afrobeat y más. Escucha, compra y sigue creando
+          Trap, Reggaeton, Dancehall, Afrobeat y más. Escucha, compra y sigue
+          creando.
         </p>
+
+        <ul className="text-left text-gray-600 max-w-2xl mx-auto mt-20">
+          <li className="flex items-center gap-2 mb-2">
+            <span className="text-secundario">•</span> Licencias desde los 10
+            mil colones ( aprox. $20)
+          </li>
+          <li className="flex items-center gap-2 mb-2">
+            <span className="text-secundario">•</span> Podemos ajustar el beat a
+            tus necesidades
+          </li>
+          <li className="flex items-center gap-2 mb-2">
+            <span className="text-secundario">•</span> Puedes comprar la
+            licencia de uso exclusivo
+          </li>
+          <li className="flex items-center gap-2 mb-2">
+            <span className="text-secundario">•</span> Ofrecemos mp3, wav, stems
+          </li>
+          <li className="flex items-center gap-2 mb-2">
+            <span className="text-secundario">•</span> Flexibilidad, atención
+            personalizada y seguridad en cada compra
+          </li>
+        </ul>
       </section>
       <Suspense>
         <BeatsSection />

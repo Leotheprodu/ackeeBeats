@@ -30,7 +30,7 @@ export const BeatsSection = () => {
       id="beats"
       className="py-16 flex items-center justify-center flex-col gap-6 w-full h-full overflow-hidden"
     >
-      <div className="snap-always flex md:flex-wrap gap-6 md:justify-center overflow-y-hidden overflow-x-auto md:overflow-visible w-full">
+      <div className="snap-always flex flex-col items-center md:flex-row md:flex-wrap gap-6 md:justify-center w-full">
         {latestBeats.map((beat) => (
           <div
             id={`beat-${beat.id}`}
@@ -47,7 +47,7 @@ export const BeatsSection = () => {
               selectedSong?.id === beat.id
                 ? "scale-105 border-b-2 border-b-secundario/80 shadow-lg"
                 : ""
-            } snap-x transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col gap-1 p-4 w-[15rem] h-full md:h-[20rem] rounded-b-md bg-white group`}
+            } snap-x transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col  gap-1 p-4 w-[15rem] h-[12rem] md:h-[20rem] rounded-b-md bg-white group`}
           >
             <div className="flex md:items-center justify-between h-2/4 md:h-1/5 w-full">
               <div className="">
@@ -99,14 +99,14 @@ export const BeatsSection = () => {
             }
             className={`${
               selectedSong?.id === beat.id
-                ? "bg-orange-100 border-b-2 border-b-secundario/80 shadow-lg"
+                ? "bg-secundario/40 border-b-2 border-b-secundario/80 shadow-lg"
                 : "bg-white"
             } relative snap-x transition-transform duration-300 hover:cursor-pointer hover:shadow-xl justify-center items-center flex gap-1 p-4 w-full md:h-[5rem] group`}
           >
-            <div className="flex items-center justify-center w-2/5 md:w-1/5 h-full">
-              <div className="flex flex-col">
-                <div className="flex flex-col gap-1 items-center w-full">
-                  <h3 className="text-lg font-semibold w-full">{beat.name}</h3>
+            <div className="flex items-center w-2/5 md:w-1/5 h-full">
+              <div className="flex flex-col ">
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-lg font-semibold">{beat.name}</h3>
                   <p className="hidden md:flex text-sm text-center text-gray-500">
                     por {beat.producer}
                   </p>
@@ -121,10 +121,11 @@ export const BeatsSection = () => {
                 {beat.tags.join(", ")}
               </p>
               <div className="flex gap-2 items-center justify-center">
-                <small className="bg-gray-100 p-1 h-7 rounded-md">
+                <small className=" md:hidden flex">{beat.tags[0]}</small>
+                <small className=" md:flex md:p-1 md:rounded-md md:h-7 md:bg-gray-100">
                   {beat.scale}
                 </small>
-                <small className="bg-gray-100 p-1 h-7 rounded-md">
+                <small className=" md:flex md:p-1 md:rounded-md md:h-7 md:bg-gray-100">
                   {beat.bpm}bpm
                 </small>
               </div>
