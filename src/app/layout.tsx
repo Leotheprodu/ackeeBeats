@@ -86,6 +86,9 @@ export default function RootLayout({
               >
                 Contacto
               </Link>
+              <Link target="_blank" className="hover:text-secundario transition" href="https://www.flproductionscr.com/">
+                Estudio
+              </Link>
             </nav>
           </header>
           {children}
