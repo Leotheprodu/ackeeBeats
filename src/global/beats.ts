@@ -27,4 +27,13 @@ export const beats: Beat[] = [
     scale: "Fm",
     youtubeId: "ijSX5p7hS4s",
   },
+  {
+    id: 3,
+    name: "Kintsugi",
+    producer: "LeoTheProdu",
+    tags: ["Reggaeton", "BadBunny"],
+    bpm: 95,
+    scale: "Em",
+    youtubeId: "43a63wMYPYE",
+  },
 ];
