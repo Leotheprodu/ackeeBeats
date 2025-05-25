@@ -40,7 +40,7 @@ export const beats: Beat[] = [
     id: 4,
     name: "Bruma",
     producer: "LeoTheProdu",
-    tags: ["Afrobeat", "Dancehall", ""Guitarra],
+    tags: ["Afrobeat", "Dancehall", "Guitarra"],
     bpm: 103,
     scale: "A#m",
     youtubeId: "QsztNReZYK4",
