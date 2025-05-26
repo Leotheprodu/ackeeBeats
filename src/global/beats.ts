@@ -45,4 +45,13 @@ export const beats: Beat[] = [
     scale: "A#m",
     youtubeId: "QsztNReZYK4",
   },
+  {
+    id: 5,
+    name: "Twilight Riddim",
+    producer: "LeoTheProdu",
+    tags: ["DanceHall", "Trap"],
+    bpm: 95,
+    scale: "D#m",
+    youtubeId: "Wg7xLPozJS4",
+  },
 ];
