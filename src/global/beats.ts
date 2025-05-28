@@ -54,4 +54,13 @@ export const beats: Beat[] = [
     scale: "D#m",
     youtubeId: "Wg7xLPozJS4",
   },
+  {
+    id: 6,
+    name: "Slow Ride",
+    producer: "LeoTheProdu",
+    tags: ["Hip Hop", "Soul"],
+    bpm: 90,
+    scale: "Am",
+    youtubeId: "fO_8qSVPGE8",
+  },
 ];
