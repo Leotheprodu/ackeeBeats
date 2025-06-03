@@ -63,4 +63,13 @@ export const beats: Beat[] = [
     scale: "Am",
     youtubeId: "fO_8qSVPGE8",
   },
+  {
+    id: 7,
+    name: "Bloque 153",
+    producer: "LeoTheProdu",
+    tags: ["Drill", "Latino"],
+    bpm: 153,
+    scale: "Am",
+    youtubeId: "wuIjvJpM_lo",
+  },
 ];
