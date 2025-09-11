@@ -81,4 +81,13 @@ export const beats: Beat[] = [
     scale: "Bm",
     youtubeId: "AQEhM7p369M",
   },
+  {
+    id: 9,
+    name: "Ayanda",
+    producer: "LeoTheProdu",
+    tags: ["Afrobeat", "Guitarra"],
+    bpm: 102,
+    scale: "E",
+    youtubeId: "wql8tud1feg",
+  },
 ];
