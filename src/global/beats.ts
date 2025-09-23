@@ -90,4 +90,13 @@ export const beats: Beat[] = [
     scale: "E",
     youtubeId: "wql8tud1feg",
   },
+  {
+    id: 10,
+    name: "A fuego",
+    producer: "LeoTheProdu",
+    tags: ["Reggaeton", "Tiktok"],
+    bpm: 88,
+    scale: "Cm",
+    youtubeId: "8NKmKZ1tUI0",
+  },
 ];
