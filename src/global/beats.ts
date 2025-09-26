@@ -108,4 +108,13 @@ export const beats: Beat[] = [
     scale: "Bm",
     youtubeId: "fLXe97kFFgY",
   },
+  {
+    id: 12,
+    name: "Color Fresh",
+    producer: "LeoTheProdu",
+    tags: ["DanceHall", "Tiktok", "Riddim"],
+    bpm: 90,
+    scale: "D",
+    youtubeId: "KwUXTgXR7s0",
+  },
 ];
