@@ -99,4 +99,13 @@ export const beats: Beat[] = [
     scale: "Cm",
     youtubeId: "8NKmKZ1tUI0",
   },
+  {
+    id: 11,
+    name: "Cocles",
+    producer: "LeoTheProdu",
+    tags: ["Reggae", "Tiktok", "Roots"],
+    bpm: 80,
+    scale: "Bm",
+    youtubeId: "fLXe97kFFgY",
+  },
 ];
