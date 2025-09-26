@@ -97,7 +97,7 @@ export const beats: Beat[] = [
     tags: ["Reggaeton", "Tiktok"],
     bpm: 88,
     scale: "Cm",
-    youtubeId: "8NKmKZ1tUI0",
+    youtubeId: "Rm64pXoO0Ww",
   },
   {
     id: 11,
