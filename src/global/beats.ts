@@ -117,4 +117,13 @@ export const beats: Beat[] = [
     scale: "D",
     youtubeId: "KwUXTgXR7s0",
   },
+   {
+    id: 13,
+    name: "Ecos del alma",
+    producer: "LeoTheProdu",
+    tags: ["Hip Hop", "Tiktok", "Rap"],
+    bpm: 90,
+    scale: "Cm",
+    youtubeId: "_5Wm0BEQViY",
+  },
 ];
