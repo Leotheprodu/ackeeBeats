@@ -126,4 +126,13 @@ export const beats: Beat[] = [
     scale: "Cm",
     youtubeId: "_5Wm0BEQViY",
   },
+  {
+  "id": 14,
+  "name": "Whole Nite Riddim",
+  "producer": "LeoTheProdu",
+  "tags": ["DanceHall", " TikTok"],
+  "bpm": 90,
+  "scale": "Am",
+  "youtubeId": "gXtJa2I8xqI"
+}
 ];
