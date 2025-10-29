@@ -134,5 +134,14 @@ export const beats: Beat[] = [
   "bpm": 90,
   "scale": "Am",
   "youtubeId": "gXtJa2I8xqI"
+  },
+  {
+  "id": 15,
+  "name": "Iron Dog Riddim",
+  "producer": "LeoTheProdu",
+  "tags": ["DanceHall", "Dark"],
+  "bpm": 93,
+  "scale": "G#m",
+  "youtubeId": "fk8Taia4BH4"
 }
 ];
