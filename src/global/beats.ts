@@ -9,7 +9,7 @@ export type Beat = {
 };
 
 export const beats: Beat[] = [
-  {
+  /* {
     id: 1,
     name: "New West",
     producer: "LeoTheProdu",
@@ -17,7 +17,7 @@ export const beats: Beat[] = [
     bpm: 110,
     scale: "C#m",
     youtubeId: "RZpoWOVAJkU",
-  },
+  }, */
   {
     id: 2,
     name: "Playita",
