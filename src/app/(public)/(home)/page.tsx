@@ -17,12 +17,13 @@ export default function Home() {
             Producción de Élite
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-gray-900 leading-tight">
-            Beats frescos, estilo exótico, <br />
+            Tienda de Beats: Estilo exótico, <br />
             <span className="text-secundario">Sonido Ackee</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
-            Trap, Reggaeton, Dancehall y Afrobeat con la esencia del Caribe.
-            Eleva tu música con producciones de calidad profesional.
+            Tus próximos hits de Trap, Reggaeton, Afrobeat, Pop y Dancehall
+            están aquí. Eleva tu música con producciones de calidad profesional
+            y licencias flexibles.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-6">
             <a
@@ -94,7 +95,9 @@ export default function Home() {
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={feature.image}
-                    alt={feature.title}
+                    alt={`Ackee Beats - ${
+                      feature.title
+                    } - ${feature.description.substring(0, 50)}...`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />

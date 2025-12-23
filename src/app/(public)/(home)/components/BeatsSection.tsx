@@ -61,11 +61,11 @@ export const BeatsSection = () => {
     >
       <div className="text-center space-y-4">
         <h2 className="text-4xl font-bold text-gray-900">
-          Explora el Catálogo
+          Venta de Beats: Explora el Catálogo
         </h2>
         <p className="text-gray-600 max-w-xl mx-auto">
-          Encuentra el ritmo perfecto para tu próximo éxito musical. Filtra por
-          nombre, género o estilo.
+          Encuentra el ritmo perfecto para tu próximo éxito musical. Beats de
+          Trap, Reggaeton, Afrobeat y Pop disponibles para licencia inmediata.
         </p>
       </div>
 

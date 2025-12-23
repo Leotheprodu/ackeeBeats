@@ -5,46 +5,65 @@ import Image from "next/image";
 import { MusicPlayer } from "./(public)/(home)/components/musicPlayer/MusicPlayer";
 import { appDescription, appName, domainUrl } from "@global/constants";
 import { Metadata } from "next";
+import { StructuredData } from "./components/StructuredData";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${domainUrl}`),
   title: {
     template: `%s | ${appName}`,
-    default: `${appName}`,
+    default: `${appName} | Tienda de Beats Online | Trap, Reggaeton, Afrobeat & Pop`,
   },
-  description: `${appDescription}`,
+  description:
+    "Comprar beats de alta calidad. Trap, Reggaeton, Afrobeat, Pop y Dancehall. Licencias de beats, producciones exclusivas y sonido profesional desde Costa Rica por LeoTheProdu.",
   keywords: [
-    "beats",
-    "trap",
-    "dancehall",
-    "afrobeat",
-    "Costa Rica",
-    "reggaeton",
-    "urbano",
+    "comprar beats",
+    "tienda de beats online",
+    "beats para artistas",
+    "trap beats",
+    "reggaeton beats",
+    "afrobeat type beats",
+    "pop production",
+    "dancehall riddims",
+    "beatmaker costa rica",
+    "licencias de beats",
+    "instrumentales urbanas",
+    "ackee beats",
+    "leotheprodu",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${appName}`,
-    description: `${appDescription}`,
-    url: `${domainUrl}`,
-    siteName: `${appName}`,
+    title: `${appName} | Tu Tienda de Beats de Confianza`,
+    description:
+      "Eleva tu música con beats profesionales de Trap, Reggaeton, Afrobeat y más. ¡Explora nuestro catálogo!",
+    url: `https://${domainUrl}`,
+    siteName: appName,
     images: [
       {
         url: "/logo_ackee.png",
-        width: 1024,
-        height: 1024,
-        alt: "ackee beats logo",
+        width: 1200,
+        height: 630,
+        alt: "Ackee Beats - Professional Beat Store",
       },
     ],
     locale: "es_CR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${appName} | Beats Profesionales`,
+    description:
+      "La mejor selección de beats urbanos, afrobeat y pop para tu próximo hit.",
+    images: ["/logo_ackee.png"],
+    creator: "@leotheprodu",
+  },
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -61,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="bg-white min-h-screen selection:bg-secundario selection:text-white">
+        <StructuredData />
         <Toaster />
         <div className="flex flex-col min-h-screen">
           <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
