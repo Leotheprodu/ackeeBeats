@@ -18,43 +18,57 @@ export const ContactUsForm = () => {
     window.open(url, "_blank");
   };
   return (
-    <div>
-      <h2 className="text-3xl font-bold mb-6">Contacto</h2>
-      <form id="contact" onSubmit={handleSubmit} className="w-80 grid gap-4">
-        <input
-          type="text"
-          name="name"
-          required
-          placeholder="Nombre"
-          className="border p-3 rounded"
-        />
-        <textarea
-          name="message"
-          required
-          placeholder="Mensaje"
-          className="border p-3 rounded"
-          rows={5}
-        ></textarea>
-        <div className="flex justify-between">
+    <div className="w-full">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-1">
+          <label className="text-sm font-bold text-gray-700 ml-1">
+            Tu Nombre
+          </label>
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Ej. Juan Pérez"
+            className="w-full border-2 border-gray-100 p-4 rounded-2xl focus:border-secundario outline-none transition-all bg-white shadow-sm"
+          />
+        </div>
+        <div className="space-y-1">
+          <label className="text-sm font-bold text-gray-700 ml-1">
+            Tu Mensaje
+          </label>
+          <textarea
+            name="message"
+            required
+            placeholder="¿En qué puedo ayudarte?"
+            className="w-full border-2 border-gray-100 p-4 rounded-2xl focus:border-secundario outline-none transition-all bg-white shadow-sm resize-none"
+            rows={4}
+          ></textarea>
+        </div>
+
+        <div className="flex flex-col gap-6 pt-2">
           <button
             disabled={sentForm}
             type="submit"
-            className="bg-secundario text-white py-2 px-4 rounded hover:bg-orange-700 transition w-28 hover:cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full bg-secundario text-white py-4 px-6 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-lg shadow-secundario/20 active:scale-[0.98] disabled:bg-gray-300 disabled:shadow-none flex items-center justify-center gap-3 cursor-pointer"
           >
-            <div className="flex items-center gap-2">
-              Enviar
-              <WhatsappIcon className="w-6 h-6" />
-            </div>
+            Enviar por WhatsApp
+            <WhatsappIcon className="w-6 h-6" />
           </button>
-          <div className="flex items-center gap-4">
+
+          <div className="flex items-center justify-center gap-8 pt-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
             <a
               href="https://www.youtube.com/channel/UCAVKw7wP-yKPGSbCd1BJ7mw"
               target="_blank"
+              title="YouTube"
             >
-              <YoutubeIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:text-orange-800 transition" />
+              <YoutubeIcon className="w-8 h-8 hover:text-[#FF0000] transition-colors" />
             </a>
-            <a href="https://www.facebook.com/FLProductionscr" target="_blank">
-              <FacebookIcon className="w-6 h-6 text-secundario  hover:cursor-pointer hover:text-orange-800 transition" />
+            <a
+              href="https://www.facebook.com/FLProductionscr"
+              target="_blank"
+              title="Facebook"
+            >
+              <FacebookIcon className="w-8 h-8 hover:text-[#1877F2] transition-colors" />
             </a>
           </div>
         </div>

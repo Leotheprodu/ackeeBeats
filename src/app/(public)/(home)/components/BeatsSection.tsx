@@ -3,15 +3,34 @@
 import { beats } from "@global/beats";
 import { BuyButton } from "./BuyButton";
 import { $PlayList, $SelectedSong } from "@stores/player";
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useStore } from "@nanostores/react";
 import { PlayIcon } from "@/icons/PlayIcon";
+import { SearchInput } from "./SearchInput";
+
 export const BeatsSection = () => {
   const selectedSong = useStore($SelectedSong);
-  const sortedBeats = beats?.sort((a, b) => b.id - a.id);
-  const beatLimit = 4;
-  const latestBeats = sortedBeats?.slice(0, beatLimit);
-  const allBeats = sortedBeats?.slice(beatLimit);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredBeats = useMemo(() => {
+    if (!searchTerm) return beats || [];
+    const term = searchTerm.toLowerCase();
+    return beats.filter(
+      (beat) =>
+        beat.name.toLowerCase().includes(term) ||
+        beat.tags.some((tag) => tag.toLowerCase().includes(term)) ||
+        beat.producer.toLowerCase().includes(term)
+    );
+  }, [searchTerm]);
+
+  const sortedBeats = useMemo(
+    () => [...filteredBeats].sort((a, b) => b.id - a.id),
+    [filteredBeats]
+  );
+
+  const trendingBeats = useMemo(() => sortedBeats.slice(0, 4), [sortedBeats]);
+  const otherBeats = useMemo(() => sortedBeats.slice(4), [sortedBeats]);
+
   useEffect(() => {
     const songsWithYoutubeId = beats?.filter((song) => song.youtubeId);
 
@@ -22,126 +41,171 @@ export const BeatsSection = () => {
         name: song.name,
         tags: song.tags,
       }));
-      console.log("songsToPlaylists", songsToPlaylists);
       $PlayList.set(songsToPlaylists);
     }
   }, []);
+
+  const handleSelectBeat = (beat: any) => {
+    $SelectedSong.set({
+      id: beat.id,
+      name: beat.name,
+      youtubeId: beat.youtubeId,
+      tags: beat.tags,
+    });
+  };
+
   return (
     <section
       id="beats"
-      className="py-16 flex items-center justify-center flex-col gap-6 w-full h-full overflow-hidden"
+      className="py-16 px-6 max-w-7xl mx-auto w-full flex flex-col items-center gap-12"
     >
-      <div className="snap-always flex flex-col items-center md:flex-row md:flex-wrap gap-6 md:justify-center w-full">
-        {latestBeats.map((beat) => (
-          <div
-            id={`beat-${beat.id}`}
-            key={beat.id}
-            onClick={() =>
-              $SelectedSong.set({
-                id: beat.id,
-                name: beat.name,
-                youtubeId: beat.youtubeId,
-                tags: beat.tags,
-              })
-            }
-            className={`${
-              selectedSong?.id === beat.id
-                ? "scale-105 border-b-2 border-b-secundario/80 shadow-lg"
-                : ""
-            } snap-x transition-transform duration-300 hover:cursor-pointer hover:shadow-xl rounded-md flex flex-col  gap-1 p-4 w-[15rem] h-[12rem] md:h-[20rem] rounded-b-md bg-white group`}
-          >
-            <div className="flex md:items-center justify-between h-2/4 md:h-1/5 w-full">
-              <div className="">
-                <div className="flex flex-wrap gap-1 items-center">
-                  <h3 className="text-lg font-semibold p-0 m-0">{beat.name}</h3>
-                  <p className="text-sm text-gray-500">{beat.producer}</p>
-                </div>
-
-                <div className="flex gap-2">
-                  <small className="bg-gray-200 p-1 rounded-md">
-                    {beat.scale}
-                  </small>
-                  <small className="bg-gray-200 p-1 rounded-md">
-                    {beat.bpm}bpm
-                  </small>
-                </div>
-              </div>
-              <small className="group-hover:scale-150 rounded-full p-1 transition-all duration-300 ">
-                <PlayIcon />
-              </small>
-            </div>
-            <p className="h-1/4 md:h-1/5 w-full text-sm text-gray-600">
-              {beat.tags.join(", ")}
-            </p>
-            <div className="flex md:flex-col items-center gap-4 justify-center md:h-3/5 h-1/4 w-full">
-              <img
-                src={`https://img.youtube.com/vi/${beat?.youtubeId}/mqdefault.jpg`}
-                alt={`imagen de ${beat.name}`}
-                className="rounded-full md:h-full md:w-full max-h-28 h-10 w-10  md:rounded-sm object-cover"
-              />
-              <BuyButton id={beat.id} />
-            </div>
-          </div>
-        ))}
+      <div className="text-center space-y-4">
+        <h2 className="text-4xl font-bold text-gray-900">
+          Explora el Catálogo
+        </h2>
+        <p className="text-gray-600 max-w-xl mx-auto">
+          Encuentra el ritmo perfecto para tu próximo éxito musical. Filtra por
+          nombre, género o estilo.
+        </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center w-full max-w-[50rem] gap-1">
-        {allBeats.map((beat) => (
-          <div
-            id={`beat-${beat.id}`}
-            key={beat.id}
-            onClick={() =>
-              $SelectedSong.set({
-                id: beat.id,
-                name: beat.name,
-                youtubeId: beat.youtubeId,
-                tags: beat.tags,
-              })
-            }
-            className={`${
-              selectedSong?.id === beat.id
-                ? "bg-secundario/40 border-b-2 border-b-secundario/80 shadow-lg"
-                : "bg-white"
-            } relative snap-x transition-transform duration-300 hover:cursor-pointer hover:shadow-xl justify-center items-center flex gap-1 p-4 w-full md:h-[5rem] group`}
-          >
-            <div className="flex items-center w-2/5 md:w-1/5 h-full">
-              <div className="flex flex-col ">
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-lg font-semibold">{beat.name}</h3>
-                  <p className="hidden md:flex text-sm text-center text-gray-500">
-                    por {beat.producer}
-                  </p>
+      <SearchInput value={searchTerm} onChange={setSearchTerm} />
+
+      {trendingBeats.length > 0 && (
+        <div className="w-full space-y-8">
+          <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+            <h3 className="text-2xl font-bold flex items-center gap-2">
+              <span className="text-secundario">🔥</span> Tendencias
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {trendingBeats.map((beat) => (
+              <div
+                key={beat.id}
+                onClick={() => handleSelectBeat(beat)}
+                className={`group relative bg-white rounded-2xl p-4 transition-all duration-300 hover:shadow-2xl border-2 ${
+                  selectedSong?.id === beat.id
+                    ? "border-secundario"
+                    : "border-transparent shadow-lg"
+                } cursor-pointer`}
+              >
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-xl">
+                  <img
+                    src={`https://img.youtube.com/vi/${beat.youtubeId}/maxresdefault.jpg`}
+                    alt={beat.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      (
+                        e.target as HTMLImageElement
+                      ).src = `https://img.youtube.com/vi/${beat.youtubeId}/mqdefault.jpg`;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="bg-white/90 p-4 rounded-full scale-75 group-hover:scale-100 transition-transform">
+                      <PlayIcon className="w-8 h-8 text-secundario" />
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-lg font-bold truncate">{beat.name}</h4>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-500 font-medium">
+                      {beat.producer}
+                    </span>
+                    <span className="bg-gray-100 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">
+                      {beat.bpm} BPM
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {beat.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] bg-secundario/10 text-secundario px-2 py-0.5 rounded-full font-bold"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="pt-2 border-t border-gray-50 mt-2">
+                    <BuyButton id={beat.id} />
+                  </div>
                 </div>
               </div>
-              <small className="group-hover:scale-150 flex items-center justify-center rounded-full p-1 transition-all duration-300 absolute right-2">
-                <PlayIcon />
-              </small>
-            </div>
-            <div className="flex w-1/5 md:w-2/5 justify-center text-center h-full">
-              <p className=" hidden md:flex text-sm text-gray-600 ">
-                {beat.tags.join(", ")}
-              </p>
-              <div className="flex gap-2 items-center justify-center">
-                <small className=" md:hidden flex">{beat.tags[0]}</small>
-                <small className=" md:flex md:p-1 md:rounded-md md:h-7 md:bg-gray-100">
-                  {beat.scale}
-                </small>
-                <small className=" md:flex md:p-1 md:rounded-md md:h-7 md:bg-gray-100">
-                  {beat.bpm}bpm
-                </small>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 justify-center w-2/5 h-full">
-              <img
-                src={`https://img.youtube.com/vi/${beat?.youtubeId}/mqdefault.jpg`}
-                alt={`imagen de ${beat.name}`}
-                className="h-15 w-15 object-cover border-1 border-secundario shadow hidden md:flex"
-              />
-              <BuyButton id={beat.id} />
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
+      {otherBeats.length > 0 && (
+        <div className="w-full space-y-8 mt-12">
+          <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+            <h3 className="text-2xl font-bold">Más Recientes</h3>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            {otherBeats.map((beat) => (
+              <div
+                key={beat.id}
+                onClick={() => handleSelectBeat(beat)}
+                className={`flex items-center gap-6 bg-white p-3 rounded-xl transition-all hover:shadow-md cursor-pointer group border-l-4 ${
+                  selectedSong?.id === beat.id
+                    ? "border-secundario bg-secundario/5"
+                    : "border-transparent hover:border-gray-200"
+                }`}
+              >
+                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <img
+                    src={`https://img.youtube.com/vi/${beat.youtubeId}/mqdefault.jpg`}
+                    alt={beat.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <PlayIcon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <div className="flex-grow min-w-0 grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+                  <div>
+                    <h4 className="font-bold truncate">{beat.name}</h4>
+                    <p className="text-xs text-gray-500">{beat.producer}</p>
+                  </div>
+                  <div className="hidden md:flex flex-wrap gap-2">
+                    {beat.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] text-gray-400 border border-gray-200 px-2 py-0.5 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-end gap-6 h-full">
+                    <span className="hidden sm:block text-sm font-medium text-gray-400">
+                      {beat.bpm} BPM
+                    </span>
+                    <span className="hidden sm:block text-sm font-medium text-gray-400">
+                      {beat.scale}
+                    </span>
+                    <BuyButton id={beat.id} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {filteredBeats.length === 0 && (
+        <div className="text-center py-20">
+          <p className="text-gray-400 text-xl font-medium">
+            No se encontraron beats que coincidan con tu búsqueda.
+          </p>
+          <button
+            onClick={() => setSearchTerm("")}
+            className="text-secundario font-bold mt-2 hover:underline"
+          >
+            Limpiar búsqueda
+          </button>
+        </div>
+      )}
     </section>
   );
 };

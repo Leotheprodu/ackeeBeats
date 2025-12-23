@@ -60,44 +60,108 @@ export default function RootLayout({
   const currentYear = new Date().getFullYear();
   return (
     <html lang="es">
-      <body className="bg-primario">
+      <body className="bg-white min-h-screen selection:bg-secundario selection:text-white">
         <Toaster />
-        <main className=" container mx-auto px-8 py-2">
-          <header className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/logo_ackee.png"
-                alt="Ackee Beats Logo"
-                className=""
-                width={100}
-                height={100}
-              />
-            </Link>
-            <nav className="space-x-4 text-sm font-medium">
-              <Link className="hover:text-secundario transition" href="#beats">
-                Beats
-              </Link>
-              <Link className="hover:text-secundario transition" href="#about">
-                Sobre mí
-              </Link>
+        <div className="flex flex-col min-h-screen">
+          <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
+            <div className="container mx-auto px-6 h-20 flex items-center justify-between">
               <Link
-                className="hover:text-secundario transition"
-                href="#contact"
+                href="/"
+                className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
-                Contacto
+                <Image
+                  src="/logo_ackee.png"
+                  alt="Ackee Beats Logo"
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                />
               </Link>
-              <Link target="_blank" className="hover:text-secundario transition" href="https://www.flproductionscr.com/">
-                Estudio
-              </Link>
-            </nav>
+              <nav className="hidden md:flex items-center space-x-8 text-sm font-bold uppercase tracking-wider text-gray-600">
+                <Link
+                  className="hover:text-secundario transition-colors"
+                  href="#beats"
+                >
+                  Beats
+                </Link>
+                <Link
+                  className="hover:text-secundario transition-colors"
+                  href="#about"
+                >
+                  Sobre mí
+                </Link>
+                <Link
+                  className="hover:text-secundario transition-colors"
+                  href="#contact"
+                >
+                  Contacto
+                </Link>
+                <Link
+                  target="_blank"
+                  className="px-4 py-2 border-2 border-gray-900 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition-all"
+                  href="https://www.flproductionscr.com/"
+                >
+                  Estudio
+                </Link>
+              </nav>
+            </div>
           </header>
-          {children}
+
+          <main className="flex-grow">{children}</main>
+
           <MusicPlayer />
+
           {/* Footer */}
-          <footer className="text-right text-sm mt-2">
-            © {currentYear} Ackee Beats
+          <footer className="bg-gray-900 text-white py-12 px-6">
+            <div className="container mx-auto max-w-7xl">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div className="flex flex-col items-center md:items-start space-y-4">
+                  <Image
+                    src="/logo_ackee.png"
+                    alt="Ackee Beats Logo"
+                    width={150}
+                    height={150}
+                    className="opacity-70 contrast-125"
+                  />
+                  <p className="text-gray-400 text-sm max-w-xs text-center md:text-left font-medium">
+                    Elevando el sonido urbano con la esencia del Caribe.
+                    Producción musical de alta gama desde Costa Rica.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center md:items-end space-y-2">
+                  <div className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">
+                    Comunidad
+                  </div>
+                  <nav className="flex space-x-6">
+                    <Link
+                      href="#beats"
+                      className="hover:text-secundario transition"
+                    >
+                      Beats
+                    </Link>
+                    <Link
+                      href="#about"
+                      className="hover:text-secundario transition"
+                    >
+                      Bio
+                    </Link>
+                    <Link
+                      href="#contact"
+                      className="hover:text-secundario transition"
+                    >
+                      Contacto
+                    </Link>
+                  </nav>
+                </div>
+              </div>
+              <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-xs">
+                © {currentYear} Ackee Beats. Todos los derechos reservados.{" "}
+                <br className="md:hidden" />
+                Diseñado para artistas visionarios.
+              </div>
+            </div>
           </footer>
-        </main>
+        </div>
       </body>
     </html>
   );
