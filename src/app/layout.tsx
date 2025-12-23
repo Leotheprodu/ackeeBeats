@@ -3,7 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { MusicPlayer } from "./(public)/(home)/components/musicPlayer/MusicPlayer";
-import { appDescription, appName, domainUrl } from "@global/constants";
+import { appName, domainUrl } from "@global/constants";
 import { Metadata } from "next";
 import { StructuredData } from "./components/StructuredData";
 

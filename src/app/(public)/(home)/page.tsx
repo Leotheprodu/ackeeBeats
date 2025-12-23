@@ -1,6 +1,7 @@
 import { ContactUsForm } from "./components/ContactUsForm";
 import { BeatsSection } from "./components/BeatsSection";
 import { Suspense } from "react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -93,12 +94,13 @@ export default function Home() {
                 className="group relative bg-gray-50 rounded-[2.5rem] overflow-hidden border border-gray-100 hover:border-secundario/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:-translate-y-2"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <Image
                     src={feature.image}
                     alt={`Ackee Beats - ${
                       feature.title
                     } - ${feature.description.substring(0, 50)}...`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute top-6 left-6">

@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { beats } from "@global/beats";
+import { beats, Beat } from "@global/beats";
 import { BuyButton } from "./BuyButton";
 import { $PlayList, $SelectedSong } from "@stores/player";
 import { useEffect, useState, useMemo } from "react";
@@ -45,7 +45,7 @@ export const BeatsSection = () => {
     }
   }, []);
 
-  const handleSelectBeat = (beat: any) => {
+  const handleSelectBeat = (beat: Beat) => {
     $SelectedSong.set({
       id: beat.id,
       name: beat.name,
