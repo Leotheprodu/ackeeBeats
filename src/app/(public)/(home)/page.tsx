@@ -23,8 +23,8 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
             Tus próximos hits de Trap, Reggaeton, Afrobeat, Pop y Dancehall
-            están aquí. Eleva tu música con producciones de calidad profesional
-            y licencias flexibles.
+            están aquí. Beats exclusivos,{" "}
+            <strong>grabación, mezcla y masterización</strong> profesionales.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-6">
             <a
@@ -127,6 +127,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Studio Services Section */}
+      <section className="py-24 bg-gray-50 px-6 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <div className="lg:w-1/2 space-y-8">
+            <div className="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-secundario bg-secundario/10 rounded-full">
+              Más que una tienda de beats
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+              ¿Listo para grabar <br /> tu próximo hit?
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed font-medium">
+              En <span className="text-gray-900 font-bold">FLProductions</span>,
+              nuestro estudio físico, ofrecemos servicios de grabación, mezcla y
+              masterización con equipos de gama alta y estándares
+              internacionales.
+            </p>
+            <ul className="space-y-4">
+              {[
+                "Grabación de voces e instrumentos",
+                "Mezcla profesional (Stems)",
+                "Masterización analógica y digital",
+                "Producción ejecutiva de proyectos",
+              ].map((service, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-3 text-gray-700 font-bold"
+                >
+                  <span className="w-6 h-6 bg-secundario text-white rounded-full flex items-center justify-center text-xs">
+                    ✓
+                  </span>
+                  {service}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-4">
+              <a
+                href="https://www.flproductionscr.com/"
+                target="_blank"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-secundario text-white font-black rounded-full hover:bg-secundario/90 transition-all hover:scale-105 shadow-xl shadow-secundario/20"
+              >
+                Visitar FLProductions
+                <span className="text-xl">↗</span>
+              </a>
+            </div>
+          </div>
+          <div className="lg:w-1/2 relative">
+            <div className="aspect-video rounded-[3rem] overflow-hidden shadow-2xl rotate-3 hover:rotate-0 hover:scale-[1.02] transition-all duration-700 ease-in-out">
+              <Image
+                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1200"
+                alt="FLProductions Recording Studio"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-xl border border-gray-100 hidden md:block -rotate-6">
+              <div className="text-secundario font-black text-4xl mb-1">
+                15+
+              </div>
+              <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                Años Elevando
+                <br />
+                el sonido
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About & Contact Wrapper */}
       <div className="flex flex-col lg:flex-row items-stretch bg-white">
         {/* About Section */}
@@ -145,12 +213,20 @@ export default function Home() {
             <p className="text-lg text-gray-200 leading-relaxed mb-8">
               Soy Leo, un productor costarricense enfocado en fusionar ritmos
               caribeños con la fuerza del sonido urbano moderno.
-              <strong> Ackee Beats</strong> no es solo una tienda, es el
-              laboratorio donde nacen texturas únicas para artistas que buscan
-              sonar diferente.
+              <strong> Ackee Beats</strong> es una extensión digital de mi
+              estudio físico{" "}
+              <a
+                href="https://www.flproductionscr.com/"
+                target="_blank"
+                className="text-secundario hover:underline"
+              >
+                FLProductions
+              </a>
+              , el laboratorio donde nacen texturas únicas para artistas que
+              buscan sonar diferente.
             </p>
             <div className="flex items-center gap-4 border-l-4 border-secundario pl-6 py-2">
-              <span className="text-secundario font-black text-2xl">10+</span>
+              <span className="text-secundario font-black text-2xl">15+</span>
               <span className="text-sm font-medium tracking-wide uppercase">
                 Años de experiencia <br />
                 en producción musical

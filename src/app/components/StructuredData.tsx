@@ -21,7 +21,7 @@ export const StructuredData = () => {
     url: `https://${domainUrl}`,
     logo: `https://${domainUrl}/logo_ackee.png`,
     description:
-      "Tienda de beats y productora musical especializada en Trap, Reggaeton, Afrobeat y Pop.",
+      "Tienda de beats y estudio de grabación profesional (FLProductions). Especializados en grabación de voces, mezcla, masterización, Trap, Reggaeton, Afrobeat y Pop.",
     sameAs: [
       "https://www.instagram.com/leotheprodu",
       "https://www.flproductionscr.com",
