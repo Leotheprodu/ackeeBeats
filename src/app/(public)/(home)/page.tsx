@@ -1,3 +1,8 @@
+import { ArrowUpRightIcon } from "@/icons/ArrowUpRightIcon";
+import { FireIcon } from "@/icons/FireIcon";
+import { MusicIcon } from "@/icons/MusicIcon";
+import { ShieldCheckIcon } from "@/icons/ShieldCheckIcon";
+import { CheckIcon } from "@/icons/CheckIcon";
 import { ContactUsForm } from "./components/ContactUsForm";
 import { BeatsSection } from "./components/BeatsSection";
 import { Suspense } from "react";
@@ -111,8 +116,14 @@ export default function Home() {
                 </div>
 
                 <div className="p-10 relative">
-                  <div className="absolute -top-12 right-10 w-20 h-20 bg-secundario rounded-3xl flex items-center justify-center text-white text-3xl shadow-xl shadow-secundario/20 transform rotate-6 group-hover:rotate-12 transition-transform">
-                    {idx === 0 ? "🔥" : idx === 1 ? "🎹" : "🛡️"}
+                  <div className="absolute -top-12 right-10 w-20 h-20 bg-secundario rounded-3xl flex items-center justify-center text-white shadow-xl shadow-secundario/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+                    {idx === 0 ? (
+                      <FireIcon className="w-10 h-10" />
+                    ) : idx === 1 ? (
+                      <MusicIcon className="w-10 h-10" />
+                    ) : (
+                      <ShieldCheckIcon className="w-10 h-10" />
+                    )}
                   </div>
                   <h3 className="text-2xl font-black mb-4 text-gray-900 leading-tight group-hover:text-secundario transition-colors">
                     {feature.title}
@@ -154,8 +165,8 @@ export default function Home() {
                   key={i}
                   className="flex items-center gap-3 text-gray-700 font-bold"
                 >
-                  <span className="w-6 h-6 bg-secundario text-white rounded-full flex items-center justify-center text-xs">
-                    ✓
+                  <span className="w-6 h-6 bg-secundario text-white rounded-full flex items-center justify-center">
+                    <CheckIcon className="w-3.5 h-3.5" />
                   </span>
                   {service}
                 </li>
@@ -168,7 +179,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-secundario text-white font-black rounded-full hover:bg-secundario/90 transition-all hover:scale-105 shadow-xl shadow-secundario/20"
               >
                 Visitar FLProductions
-                <span className="text-xl">↗</span>
+                <ArrowUpRightIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
