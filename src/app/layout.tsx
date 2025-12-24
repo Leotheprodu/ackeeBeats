@@ -6,6 +6,7 @@ import { MusicPlayer } from "./(public)/(home)/components/musicPlayer/MusicPlaye
 import { appName, domainUrl } from "@global/constants";
 import { Metadata } from "next";
 import { StructuredData } from "./components/StructuredData";
+import { MobileMenu } from "./components/MobileMenu";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${domainUrl}`),
@@ -128,6 +129,7 @@ export default function RootLayout({
                   Estudio
                 </Link>
               </nav>
+              <MobileMenu />
             </div>
           </header>
 
