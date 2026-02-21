@@ -156,5 +156,18 @@ export const beats: Beat[] = [
   "bpm": 104,
   "scale": "Cm",
   "youtubeId": "mK-X-7NWc6U"
+},
+  {
+  "id": 17,
+  "name": "1%",
+  "producer": "LeoTheProdu",
+  "tags": [
+    "Drill",
+    "Trap",
+    "Phonk"
+  ],
+  "bpm": 125,
+  "scale": "Cm",
+  "youtubeId": "tqEmQnyvG-c"
 }
 ];
