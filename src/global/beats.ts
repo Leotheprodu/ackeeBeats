@@ -143,5 +143,18 @@ export const beats: Beat[] = [
   "bpm": 93,
   "scale": "G#m",
   "youtubeId": "fk8Taia4BH4"
+},
+  {
+  "id": 16,
+  "name": "Crudo",
+  "producer": "LeoTheProdu",
+  "tags": [
+    "DanceHall",
+    "Trap",
+    "Dark"
+  ],
+  "bpm": 104,
+  "scale": "Cm",
+  "youtubeId": "mK-X-7NWc6U"
 }
 ];
